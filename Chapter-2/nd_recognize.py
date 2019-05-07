@@ -3,7 +3,7 @@
 # @Author: Kami
 # @Date:   2019-05-07 09:29:50
 # @Last Modified by:   Kami
-# @Last Modified time: 2019-05-07 14:54:59
+# @Last Modified time: 2019-05-07 15:15:12
 
 from __future__ import print_function
 
@@ -48,7 +48,9 @@ def nd_recognize(tape, transition_table, accept_states):
         agenda += generate_new_state(current_state, index)
         if len(agenda)==0:
             break
-        current_state, index = agenda.pop(0)
+        
+        # stack, LIFO
+        current_state, index = agenda.pop()
 
     # ACCEPT-STATE?: end of the input has been reached
     if current_state in accept_states:
